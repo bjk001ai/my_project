@@ -1,4 +1,4 @@
-2026-5-16
+## 2026-5-16
 1. 클로드 설치 
     - https://claude.ai/redirect/claudedotcom.v1.db439d14-0a4c-4f77-a473-be2c72bc7ffc/api/desktop/win32/x64/setup/latest/redirect
 2. Crome browser설치(클로드가 엣지에서는 안열림)
@@ -83,5 +83,5 @@
     PS D:\project\git\my_project> git remote set-url origin ssh://git@ssh.github.com:443/bjk001ai/my_project.git
     PS D:\project\git\my_project> git pull
 
-2026-5-17
+## 2026-5-17
     # Notion 배우기
