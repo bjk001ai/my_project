@@ -29,4 +29,47 @@
     / (root) 선택 (index.html이 최상위 폴더에 있으면 root)
     3단계: Save 클릭 ✅
     잠시 후 (1~3분) 상단 https://bjk001ai.github.io/my_project/ 생성
-10. 
+10. GitHub 계정 2개 동시에 사용(SSH Key 2개 생성)
+    # 1. .ssh 폴더 생성
+    mkdir C:\Users\$env:USERNAME\.ssh
+    # 첫 번째 계정 (개인용)
+    ssh-keygen -t ed25519 -C "bongjk220@gmail.com" -f "C:\Users\$env:USERNAME\.ssh\id_ed25519_bongjk220"
+    # 두 번째 계정 (회사/다른용)
+    ssh-keygen -t ed25519 -C "bjk001ai@gmail.com" -f "C:\Users\$env:USERNAME\.ssh\id_ed25519_bjk001ai"
+    # SSH Config 파일 설정
+    code "C:\Users\봉대현\.ssh\config"
+        # 계정 1 (개인)
+        Host github-account1
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519_bongjk220
+
+        # 계정 2 (회사/다른용)
+        Host github-account2
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519_bjk001ai
+
+    # 계정1 키복사 후 Setting
+    - cat C:\Users\봉대현\.ssh\id_ed25519_bongjk220.pub
+        - ssh-ed25519 AAAA... 로 시작하는 텍스트 전체 복사!
+    - GitHub 로그인해서 Settings > SSH and GPG keys에서 New SSH key > 텍스트 붙여넣기
+    - ssh -T git@github-account1 (Hi bongjk220! You've successfully authenticated 라고 나오면 성공)
+    # 계정2 키복사 후 Setting
+    - cat C:\Users\봉대현\.ssh\id_ed25519_bjk001ai.pub
+        - ssh-ed25519 AAAA... 로 시작하는 텍스트 전체 복사!
+    - GitHub 로그인해서 Settings > SSH and GPG keys에서 New SSH key > 텍스트 붙여넣기
+    - ssh -T git@github-account2 (Hi bjk001ai! You've successfully authenticated 라고 나오면 성공)
+
+    # 계정1 프로젝트 clone할 때
+    git clone git@github-account1:bongjk220/fs.git
+    # 계정2 프로젝트 clone할 때
+    git clone git@github-account2:bjk001ai/my_project.git
+    # 기존 프로젝트는 remote URL 변경
+    git remote set-url origin bongjk220@github-account1:bongjk220/fs.git
+    git remote set-url origin bjk001ai@github-account2:bjk001ai/my_project.git
+
+    PS D:\project\git> ssh -T git@github-account1
+    Hi bongjk220! You've successfully authenticated, but GitHub does not provide shell access.
+    PS D:\project\git> ssh -T git@github-account2
+    Hi bjk001ai! You've successfully authenticated, but GitHub does not provide shell access.
