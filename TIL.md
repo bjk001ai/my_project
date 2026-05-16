@@ -40,15 +40,17 @@
     code "C:\Users\봉대현\.ssh\config"
         # 계정 1 (개인)
         Host github-account1
-        HostName github.com
+        HostName ssh.github.com
         User git
-        IdentityFile ~/.ssh/id_ed25519_bongjk220
+        Port 443
+        IdentityFile C:\Users\봉대현\.ssh\id_ed25519_bongjk220
 
         # 계정 2 (회사/다른용)
         Host github-account2
-        HostName github.com
+        HostName ssh.github.com
         User git
-        IdentityFile ~/.ssh/id_ed25519_bjk001ai
+        Port 443
+        IdentityFile C:\Users\봉대현\.ssh\id_ed25519_bjk001ai
 
     # 계정1 키복사 후 Setting
     - cat C:\Users\봉대현\.ssh\id_ed25519_bongjk220.pub
@@ -62,14 +64,24 @@
     - ssh -T git@github-account2 (Hi bjk001ai! You've successfully authenticated 라고 나오면 성공)
 
     # 계정1 프로젝트 clone할 때
-    git clone git@github-account1:bongjk220/fs.git
+    git -c core.sshCommand="ssh -i ~/.ssh/id_ed25519_bongjk220 -p 443" clone git@ssh.github.com:bongjk220/fs.git
     # 계정2 프로젝트 clone할 때
-    git clone git@github-account2:bjk001ai/my_project.git
-    # 기존 프로젝트는 remote URL 변경
-    git remote set-url origin bongjk220@github-account1:bongjk220/fs.git
-    git remote set-url origin bjk001ai@github-account2:bjk001ai/my_project.git
+    git -c core.sshCommand="ssh -i ~/.ssh/id_ed25519_bjk001ai -p 443" clone git@ssh.github.com:bjk001ai/my_project.git
 
-    PS D:\project\git> ssh -T git@github-account1
-    Hi bongjk220! You've successfully authenticated, but GitHub does not provide shell access.
-    PS D:\project\git> ssh -T git@github-account2
-    Hi bjk001ai! You've successfully authenticated, but GitHub does not provide shell access.
+    # 프로젝트안에서 계정 설정 
+    PS D:\project\git> cd fs
+    PS D:\project\git\fs> git config --local user.name "bongjk220"
+    PS D:\project\git\fs> git config --local user.email "bongjk220@gmail.com" 
+
+    # 기존 프로젝트는 remote URL 변경
+    PS D:\project\git\fs> git remote -v
+    PS D:\project\git\fs> git remote set-url origin ssh://git@ssh.github.com:443/bongjk220/fs.git
+    PS D:\project\git\fs> git pull
+
+    # 기존 프로젝트는 remote URL 변경
+    PS D:\project\git\my_project> git remote -v
+    PS D:\project\git\my_project> git remote set-url origin ssh://git@ssh.github.com:443/bjk001ai/my_project.git
+    PS D:\project\git\my_project> git pull
+
+2026-5-17
+    # Notion 배우기
