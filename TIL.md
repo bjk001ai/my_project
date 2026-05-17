@@ -84,4 +84,108 @@
     PS D:\project\git\my_project> git pull
 
 ## 2026-5-17
+# Jekyll+ GitHub Pages 만들어보기
+1. Ruby 설치
+    - rubyinstaller.org/downloads 접속
+    - Ruby+Devkit (With Devkit) 다운 (예: Ruby+Devkit 3.2.X (x64))
+    - 설치 중 마지막에 ridk install 창이 뜨면 Enter 누르기
+    - 설치 완료 후 터미널(cmd)에서 확인(ruby -v)
+2. Jekyll 설치
+    - gem install jekyll bundler
+    - 설치 확인(jekyll -v)
+3. 블로그 생성 & 로컬 실행
+    # 블로그 폴더 생성
+    jekyll new my-blog
+    # 폴더로 이동
+    cd my-blog
+    # 로컬에서 미리보기
+    bundle exec jekyll serve
+    - 확인 (http://localhost:4000)
+4. GitHub에 올리기
+    - GitHub에서 새 Repository만들기
+    - cd D:/project/git/my_project/my-blog
+    - git init
+    - git remote add origin https://github.com/bjk001ai/bjk001ai.github.io.git
+    - git add .
+    - git commit -m "첫 블로그 시작"
+    - git push -u origin master
+5. GitHub Repository 설정
+    - github.com/bjk001ai/bjk001ai.github.io 접속
+    - 상단 Settings 탭 클릭
+    - 왼쪽 메뉴에서 Pages 클릭
+    - Branch 를 master 로 선택 → Save
+    - https://bjk001ai.github.io 확인
+6. 블로그 수정
+    - _config.yml를 수정해서 사용
+    - _posts 폴더안에 _posts YYYY-MM-DD-제목.markdown 파일로 공부 유형별로 생성
+
+## 2026-5-17
+# Hugo + GitHub Pages 만들어보기
+1. Hugo 설치
+    - winget install Hugo.Hugo.Extended
+    - hugo version
+    - cd D:/project/git
+    - hugo new site hugo-blog
+2. PaperMod 테마 설치
+    - cd hugo-blog
+    - git init
+    - git submodule add https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
+    - hugo.toml 열어서 수정
+    - hugo server
+    - http://localhost:1313
+3. GitHub Actions 설정
+    - GitHub에 새 Repository 만들기
+    - hugo-blog/.github/workflows/deploy.yml 만들기
+    - push 후 GitHub Repository → Settings → Pages 로 가서 Source: GitHub Actions 선택
+4. 글작성
+    - content/posts/ 폴더 아래 .md 로 생성
+    - hugo.toml 첫화면에서 메뉴부분 추가
+
+## 2026-5-18
+# React + GitHub Pages 만들어보기
+1. React 기초(무료 학습 ko.react.dev)
+    - 컴포넌트 : 레고 블록처럼 UI를 조각으로 나누는 것
+    - props : 컴포넌트에 데이터 전달하는 방법
+    - useState : 버튼 클릭 등 상태 변화 관리
+    - JSX : HTML처럼 생긴 React 문법
+    - 유투브 공부 : "드림코딩 React"
+2. Node.js 설치
+    - nodejs.org 접속 > LTS > Node.js 24.15.0 다운받아서 설치(Windows Installer (.msi))
+    - 버전확인(node -v)
+    - npm권한 설정(powershell 을 관리자 권한으로)
+        - Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+    - npm -v
+3. Gatsby CLI 설치
+    - npm install -g gatsby-cli
+    - gatsby --version
+4. Gatsby 블로그 생성
+    - gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog
+    - cd gatsby-blog
+    - gatsby develop
+    - http://localhost:8000 확인
+5. GitHub에 올리기
+    - GitHub에 새 Repository 만들기(gatsby-blog)
+    - Gatsby GitHub Pages 플러그인 설치
+        - npm install gh-pages --save-dev
+    - gatsby-config.js에 pathPrefix 추가
+        - pathPrefix: `/gatsby-blog`,
+    - package.json 에 배포 스크립트 추가
+        - VSCode에서 package.json 열고 "scripts" 부분에 "deploy" 한 줄 추가
+        - "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages",
+    - GitHub 연결 후 배포
+        - git init
+        - git remote add origin https://github.com/bjk001ai/gatsby-blog.git
+        - git add .
+        - git commit -m "Gatsby 블로그 시작"
+        - git push -u origin main
+        - npm run deploy
+    - GitHub Pages 설정
+        - Repository → Settings → Pages → Branch를 gh-pages 로 변경 → Save!
+6. 접속확인 및 글 올리기
+    - https://bjk001ai.github.io/gatsby-blog/
+    - content/blog 아래 폴더 만든후 index.md 만든어서 작성
+    - 로컬확인(gatsby develop 명령어 입력후 localhost:8000 확인)
+    - 글 수정후 npm run deploy
+
+## 2026-5-19
     # Notion 배우기
