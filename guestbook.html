@@ -131,7 +131,8 @@
     const SUPABASE_ANON_KEY = 'sb_publishable_ihTeCd-D6zJPOfhvleP0lA_stI1ohY3';
     // ==========================================
     
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // 변수명을 전역 객체와 겹치지 않게 sbClient로 변경
+    const sbClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     const gbForm = document.getElementById('guestbook-form');
     const gbList = document.getElementById('guestbook-list');
@@ -144,7 +145,7 @@
       }
 
       try {
-        const { data, error } = await supabase
+        const { data, error } = await sbClient
           .from('guestbook')
           .select('*')
           .order('created_at', { ascending: false });
@@ -174,7 +175,7 @@
       submitBtn.textContent = '등록 중...';
 
       try {
-        const { data, error } = await supabase
+        const { data, error } = await sbClient
           .from('guestbook')
           .insert([
             { name: nameInput.value, message: messageInput.value }
