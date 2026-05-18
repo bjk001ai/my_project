@@ -211,12 +211,22 @@
     - 코파일럿 : https://github.com/copilot
     - 제미나이 : https://gemini.google.com
     - lovable : https://lovable.de
+    - 스티치 : https://stitch.withgoogle.com/ (피그마같은 모바일디자인)
 4. 주요 AI MD 파일 표준 및 종류
     - CLAUDE.md: 클로드(Claude) 코드 환경에서 실행 시 자동으로 읽히는 텍스트 파일로, 프로젝트 규칙이나 AI의 역할을 명시하여 근본적인 기억 상실 문제를 해결합니다.
     - AGENTS.md: AI 코딩 에이전트를 위해 설계된 오픈 포맷 표준입니다. 개발 환경 설치 명령어, 코딩 컨벤션, 테스트 방법 등을 포함합니다.
     - DESIGN.md: UI/UX 디자인 시스템의 규칙을 담은 문서입니다. AI가 이를 참고해 브랜드의 일관된 디자인을 유지하도록 돕습니다.
     - SKILL.md: AI가 특정 업무를 수행할 때 따라야 할 지식과 실행 절차를 담은 작업 지침서입니다.
-5. 기타
+5. Database
+    - TiDB : gateway01.ap-northeast-1.prod.aws.tidbcloud.com:4000
+        - mydb : PrkazshsERPiVWq.root
+        - semi_food : 3tkKiHY8PxdnxpQ.root
+        - food (김대균) : 3i58FnJhN1SsfSL.root / LqrF6ELBfRLDzP2L
+    - supabase : aws-1-ap-south-1.pooler.supabase.com:5432
+        - postgres / postgres.eqlqagtmxvotwilsixtn
+    - neon : ep-curly-dream-aoq52ijj-pooler.c-2.ap-southeast-1.aws.neon.tech:5432
+        - neondb / neondb_owner
+6. 기타
     - 랜더 : render.com
     - EC2 : https://aws.amazon.com/ko/pm/ec2 (bjk001ai/bjk001admin/대현)
     - Inpa : https://inpa.tistory.com/
