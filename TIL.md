@@ -188,8 +188,12 @@
     - 글 수정후 npm run deploy
 
 #  [GitHub Pages] posts.json + vanilla JS 만들어보기(Cursor AI도움)
-1. posts.json에 카테고리를 만들면됨.
+1. (AI한테 부탁) posts.json에 카테고리를 만들면됨.
 2. .js는 자동생성해줌
+3. 페이지 확인 : https://bjk001ai.github.io/my_project/index.html
+#  위 내용에다가 방명록만 Supabase DB로 연결하기 (Antigravity - Gemimi3.1Pro(High))
+1. (AI한테 부탁) 
+
 
 ## 2026-5-18
 1. 훈련과정
@@ -236,5 +240,13 @@
     - Inpa : https://inpa.tistory.com/
     - RPA참조 : https://wikidocs.net/book/18237
 
+# 공공API 활용하기
+1. https://www.data.go.kr/index.do 에 회원가입
+2. 메인페이지 검색에 "국회도서관 자료검색 서비스" 입력
+3. 해당 서비스 신청(승인하는데 1분정도 걸림)
+4. API 나오는지 확인
+    http://apis.data.go.kr/9720000/searchservice/basic?serviceKey=f687d185fc246eb77f6e3deabf5e81911db4464450b0e4821c074a2f86c2e8f7&pageno=1&displaylines=10&search=자료명,미국
+    http://apis.data.go.kr/9720000/searchservice/detail?pageno=1&displaylines=10&search=자료명,생명&dbname=일반도서&option=발행년도,2000|발행년도,2010&serviceKey=
+f687d185fc246eb77f6e3deabf5e81911db4464450b0e4821c074a2f86c2e8f7
 
 # Notion 배우기

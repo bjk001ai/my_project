@@ -5,17 +5,230 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>방명록 | Dev.log</title>
   <link rel="stylesheet" href="css/post.css" />
+  <style>
+    /* 방명록 전용 스타일 */
+    .gb-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 24px 0 32px 0;
+      background: #f9f8f6;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #e0ddd8;
+    }
+    .gb-input {
+      padding: 12px 14px;
+      border: 1.5px solid #d1cec7;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    .gb-input:focus {
+      outline: none;
+      border-color: #7F77DD;
+    }
+    .gb-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .gb-btn {
+      align-self: flex-end;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      background: #534AB7;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .gb-btn:hover {
+      background: #3C3489;
+    }
+    .gb-btn:disabled {
+      background: #a09c95;
+      cursor: not-allowed;
+    }
+    
+    .gb-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .gb-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #e8e5e0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .gb-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+    .gb-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    .gb-date {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+    }
+    .gb-content {
+      font-size: 14px;
+      color: var(--color-text-primary);
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 40px 0;
+      color: var(--color-text-secondary);
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
   <nav class="nav">
     <a class="nav-logo" href="index.html">Dev.log 👨‍💻</a>
-    <div class="nav-links"><a href="index.html">홈</a></div>
+    <div class="nav-links">
+      <a href="index.html">홈</a>
+      <a href="guestbook.html" style="font-weight: bold; color: #333;">방명록</a>
+    </div>
   </nav>
+  
   <main class="article">
     <h1 class="cat-page-title">방명록</h1>
-    <p class="cat-page-desc">정적 사이트라 아직 저장 기능은 없어요. 나중에 Supabase 등을 붙이면 댓글·방명록을 살릴 수 있어요.</p>
-    <p class="post-empty">샘플 메시지: Dev.log 연습 중입니다 👋</p>
-    <a class="back-link" href="index.html">← 홈으로</a>
+    <p class="cat-page-desc">자유롭게 방문 인사를 남겨주세요!</p>
+
+    <!-- 방명록 작성 폼 -->
+    <form id="guestbook-form" class="gb-form">
+      <input type="text" id="gb-name" class="gb-input" placeholder="이름을 입력하세요" required>
+      <textarea id="gb-message" class="gb-input gb-textarea" placeholder="따뜻한 한마디를 남겨주세요" required></textarea>
+      <button type="submit" class="gb-btn">등록하기 ↗</button>
+    </form>
+
+    <!-- 방명록 목록 -->
+    <div id="guestbook-list" class="gb-list">
+      <div class="empty-state">방명록을 불러오는 중입니다...</div>
+    </div>
+
+    <a class="back-link" href="index.html">← 홈으로 돌아가기</a>
   </main>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // ==========================================
+    // [!] 주의: 아래 두 개의 값을 본인의 Supabase 정보로 교체하세요.
+    // ==========================================
+    const SUPABASE_URL = 'https://eqlqagtmxvotwilsixtn.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_ihTeCd-D6zJPOfhvleP0lA_stI1ohY3';
+    // ==========================================
+    
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const gbForm = document.getElementById('guestbook-form');
+    const gbList = document.getElementById('guestbook-list');
+
+    // 1. 방명록 불러오기
+    async function fetchGuestbook() {
+      if (SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+        gbList.innerHTML = '<div class="empty-state" style="color: #993C1D; background: #FAECE7; border-radius: 8px;">Supabase 연동이 필요합니다.<br>코드 내의 URL과 Key를 교체해주세요.</div>';
+        return;
+      }
+
+      try {
+        const { data, error } = await supabase
+          .from('guestbook')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+        renderMessages(data);
+      } catch (error) {
+        console.error('방명록 불러오기 실패:', error);
+        gbList.innerHTML = '<div class="empty-state" style="color: red;">데이터를 불러오는 데 실패했습니다.</div>';
+      }
+    }
+
+    // 2. 방명록 작성하기
+    gbForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      if (SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+        alert('Supabase 연동이 필요합니다. 소스 코드의 URL과 Key를 교체해주세요.');
+        return;
+      }
+
+      const nameInput = document.getElementById('gb-name');
+      const messageInput = document.getElementById('gb-message');
+      const submitBtn = gbForm.querySelector('button');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '등록 중...';
+
+      try {
+        const { data, error } = await supabase
+          .from('guestbook')
+          .insert([
+            { name: nameInput.value, message: messageInput.value }
+          ])
+          .select();
+
+        if (error) throw error;
+
+        // 폼 초기화 및 목록 새로고침
+        nameInput.value = '';
+        messageInput.value = '';
+        await fetchGuestbook();
+      } catch (error) {
+        console.error('방명록 작성 실패:', error);
+        alert('작성에 실패했습니다. 콘솔을 확인해주세요.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '등록하기 ↗';
+      }
+    });
+
+    // 3. 화면에 렌더링
+    function renderMessages(messages) {
+      if (!messages || messages.length === 0) {
+        gbList.innerHTML = '<div class="empty-state">아직 작성된 방명록이 없습니다. 첫 글을 남겨주세요!</div>';
+        return;
+      }
+
+      gbList.innerHTML = messages.map(msg => `
+        <div class="gb-item">
+          <div class="gb-header">
+            <span class="gb-name">${escapeHTML(msg.name)}</span>
+            <span class="gb-date">${new Date(msg.created_at).toLocaleString()}</span>
+          </div>
+          <div class="gb-content">${escapeHTML(msg.message)}</div>
+        </div>
+      `).join('');
+    }
+
+    // XSS 방지용 HTML 이스케이프 함수
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            "'": '&#39;',
+            '"': '&quot;'
+          }[tag] || tag)
+      );
+    }
+
+    // 페이지 로드 시 초기 데이터 가져오기 실행
+    fetchGuestbook();
+  </script>
 </body>
 </html>
