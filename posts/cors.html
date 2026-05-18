@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CORS 개념 & 해결법 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">WEB 지식</div>
+    <h1>🌐 악명 높은 CORS 개념 & 해결법 정리</h1>
+    <p class="article-meta">2026.05.18 · 샘플 글</p>
+    <div class="article-body">
+      <p><strong>CORS</strong>(Cross-Origin Resource Sharing)는 브라우저가 다른 출처(origin)로 요청할 때 적용하는 보안 정책이다.</p>
+      <h2>왜 막히나?</h2>
+      <p>예: <code>https://a.com</code> 페이지에서 <code>https://api.b.com</code>으로 fetch하면, 기본적으로 브라우저가 응답을 막을 수 있다.</p>
+      <h2>해결 방법</h2>
+      <p>서버에서 <code>Access-Control-Allow-Origin</code> 헤더를 내려주거나, 개발 중에는 프록시를 쓴다.</p>
+      <pre>Access-Control-Allow-Origin: https://a.com</pre>
+      <p>이 글은 데모용 가상 콘텐츠다. 실제 프로젝트 내용으로 바꿔 쓰면 된다.</p>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

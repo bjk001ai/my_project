@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>태그 | Dev.log</title>
+  <link rel="stylesheet" href="css/post.css" />
+  <style>
+    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+    .tag-chip {
+      font-size: 13px; padding: 6px 12px; border-radius: 20px;
+      border: 1.5px solid #d1cec7; text-decoration: none; color: inherit;
+    }
+    .tag-chip:hover { border-color: #534ab7; background: #f5f3fe; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links">
+      <a href="index.html">홈</a>
+      <a href="index.html#categories">카테고리</a>
+    </div>
+  </nav>
+  <main class="article">
+    <h1 class="cat-page-title">태그</h1>
+    <p class="cat-page-desc">posts.json의 tag 기준으로 모아 봤어요.</p>
+    <div class="tag-list" id="tag-list"></div>
+    <div class="post-list" id="post-list"></div>
+    <a class="back-link" href="index.html">← 홈으로</a>
+  </main>
+  <script src="js/tags.js"></script>
+</body>
+</html>

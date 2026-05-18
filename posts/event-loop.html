@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>이벤트 루프 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../category.html?cat=javascript">JavaScript</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">JavaScript</div>
+    <h1>🔄 자바스크립트 이벤트 루프 동작 구조 & 원리</h1>
+    <p class="article-meta">2026.05.18 · 샘플 글</p>
+    <div class="article-body">
+      <p>JS는 <strong>싱글 스레드</strong>지만, 콜 스택·태스크 큐·마이크로태스크로 비동기를 처리한다.</p>
+      <h2>핵심 구성</h2>
+      <p>Call Stack → Web APIs → Callback Queue → Event Loop가 스택이 비면 큐에서 꺼낸다.</p>
+      <h2>예시</h2>
+      <pre>console.log('1');
+setTimeout(() => console.log('2'), 0);
+console.log('3');
+// 1, 3, 2</pre>
+    </div>
+    <a class="back-link" href="../category.html?cat=javascript">← JavaScript 글 목록</a>
+  </article>
+</body>
+</html>

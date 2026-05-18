@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DB 인덱스 기초 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../category.html?cat=database">Database</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">Database</div>
+    <h1>📇 DB 인덱스, 왜 쓰고 어떻게 타나?</h1>
+    <p class="article-meta">2026.05.16 · 샘플 글</p>
+    <div class="article-body">
+      <p><strong>인덱스</strong>는 테이블 검색을 빠르게 하는 자료구조(B-Tree 등)다. 대신 INSERT/UPDATE 시 인덱스도 같이 갱신된다.</p>
+      <h2>언제 거나?</h2>
+      <p>WHERE, JOIN, ORDER BY에 자주 쓰는 컬럼에 건다. 카디널리티가 너무 낮은 컬럼(성별만)은 효과가 적다.</p>
+      <h2>예시 (SQL)</h2>
+      <pre>CREATE INDEX idx_user_email ON users(email);</pre>
+      <p>실행 계획(EXPLAIN)으로 인덱스를 타는지 확인하는 습관을 들이자.</p>
+    </div>
+    <a class="back-link" href="../category.html?cat=database">← Database 글 목록</a>
+  </article>
+</body>
+</html>

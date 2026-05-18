@@ -1,0 +1,143 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a1a1a;
+  background: #faf9f7;
+  line-height: 1.7;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-bottom: 1px solid #e0ddd8;
+  background: #fff;
+}
+
+.nav-logo {
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: #666;
+  text-decoration: none;
+  margin-left: 16px;
+}
+
+.article {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+
+.article-tag {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.article h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.article-meta {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e5e0;
+}
+
+.article-body h2 {
+  font-size: 17px;
+  margin: 24px 0 10px;
+}
+
+.article-body p {
+  font-size: 15px;
+  margin-bottom: 14px;
+  color: #333;
+}
+
+.article-body code {
+  background: #f3f1ec;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.article-body pre {
+  background: #1e1e1e;
+  color: #e8e8e8;
+  padding: 14px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 12px 0 16px;
+  font-size: 13px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 32px;
+  font-size: 13px;
+  color: #534ab7;
+  text-decoration: none;
+}
+
+.back-link:hover { text-decoration: underline; }
+
+.cat-page-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.cat-page-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.post-list { display: flex; flex-direction: column; }
+
+.post-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e8e5e0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #f3f1ec;
+  border: 1.5px solid #d1cec7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.post-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.post-tag { font-size: 11px; color: #888; }
+
+.post-empty { font-size: 14px; color: #888; }

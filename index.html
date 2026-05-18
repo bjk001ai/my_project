@@ -30,6 +30,7 @@
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .cat-card:hover { border-color: #a09c95; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+a.cat-card { text-decoration: none; color: inherit; display: block; }
 .cat-icon { font-size: 22px; margin-bottom: 8px; color: var(--color-text-secondary); }
 .cat-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
 .cat-count { font-size: 12px; color: var(--color-text-secondary); }
@@ -48,6 +49,8 @@
 .post-info { display: flex; gap: 10px; align-items: center; }
 .post-date { font-size: 12px; color: var(--color-text-secondary); }
 .post-likes { font-size: 12px; color: var(--color-text-secondary); display: flex; align-items: center; gap: 3px; }
+.post-item { text-decoration: none; color: inherit; }
+.post-empty { font-size: 13px; color: var(--color-text-secondary); padding: 8px 0; }
 
 .tip-box { background: #f5f3fe; border-radius: 12px; padding: 16px 20px; border-left: 3px solid #7F77DD; }
 .tip-box p { font-size: 13px; color: #3C3489; line-height: 1.8; }
@@ -58,6 +61,7 @@
 .cta-btn:hover { background: #f3f1ec; border-color: #a09c95; }
 .cta-btn.primary { background: #534AB7; color: #fff; border-color: #534AB7; }
 .cta-btn.primary:hover { background: #3C3489; border-color: #3C3489; }
+a.cta-btn { text-decoration: none; }
 </style>
 
 <nav class="nav">
@@ -66,10 +70,10 @@
     Dev.log 👨‍💻
   </div>
   <div class="nav-links">
-    <a href="#">홈</a>
-    <a href="#">카테고리</a>
-    <a href="#">태그</a>
-    <a href="#">방명록</a>
+    <a href="index.html">홈</a>
+    <a href="index.html#categories">카테고리</a>
+    <a href="tags.html">태그</a>
+    <a href="guestbook.html">방명록</a>
   </div>
 </nav>
 
@@ -78,20 +82,21 @@
   <h1>Dev.log</h1>
   <p>웹 개발에 관한 다양한 지식을 정리하는 블로그입니다.<br>꾸준히, 깊게, 함께 성장해요.</p>
   <div class="stats">
-    <div class="stat"><div class="stat-num">0</div><div class="stat-label">총 방문자</div></div>
-    <div class="stat"><div class="stat-num">0</div><div class="stat-label">포스팅</div></div>
-    <div class="stat"><div class="stat-num">0</div><div class="stat-label">카테고리</div></div>
+    <div class="stat"><div class="stat-num" id="stat-visitors">0</div><div class="stat-label">총 방문자</div></div>
+    <div class="stat"><div class="stat-num" id="stat-posts">0</div><div class="stat-label">포스팅</div></div>
+    <div class="stat"><div class="stat-num" id="stat-categories">0</div><div class="stat-label">카테고리</div></div>
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="categories">
   <div class="section-header">
     <i class="ti ti-layout-grid" aria-hidden="true"></i>
     <h2>카테고리</h2>
     <span>주제별로 정리된 글 모음</span>
   </div>
-  <div class="cat-grid">
-    <div class="cat-card">
+  <div class="cat-grid" id="cat-grid">
+    <!-- filled by js/app.js -->
+    <div class="cat-card" hidden>
       <div class="badge badge-hot">인기</div>
       <div class="cat-icon"><i class="ti ti-brand-javascript" aria-hidden="true"></i></div>
       <div class="cat-name">JavaScript</div>
@@ -136,7 +141,7 @@
     <h2>최신 글</h2>
     <span>따끈따끈한 포스팅</span>
   </div>
-  <div class="post-list">
+  <div class="post-list" id="post-list">
     <div class="post-item">
       <div class="post-thumb">🌐</div>
       <div class="post-meta">
@@ -184,7 +189,7 @@
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="guide">
   <div class="section-header">
     <i class="ti ti-bulb" aria-hidden="true"></i>
     <h2>티스토리 시작 가이드</h2>
@@ -200,13 +205,9 @@
 </div>
 
 <div class="cta-row">
-  <button class="cta-btn primary" onclick="sendPrompt('티스토리 hELLO 스킨 설정 방법 알려줘')">
-    hELLO 스킨 설정법 ↗
-  </button>
-  <button class="cta-btn" onclick="sendPrompt('개발 블로그 카테고리 구조 어떻게 짜면 좋아?')">
-    카테고리 구조 추천 ↗
-  </button>
-  <button class="cta-btn" onclick="sendPrompt('첫 블로그 글 주제 추천해줘')">
-    첫 글 주제 추천 ↗
-  </button>
+  <a class="cta-btn primary" href="#guide">hELLO 스킨 설정법 ↗</a>
+  <a class="cta-btn" href="index.html#categories">카테고리 구조 보기 ↗</a>
+  <a class="cta-btn" href="tags.html">글 주제(태그) 보기 ↗</a>
 </div>
+
+<script src="js/app.js"></script>

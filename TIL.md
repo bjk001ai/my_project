@@ -84,7 +84,7 @@
     PS D:\project\git\my_project> git pull
 
 ## 2026-5-17
-# Jekyll+ GitHub Pages 만들어보기
+# [GitHub Pages] Jekyll 만들어보기(Claude AI도움)
 1. Ruby 설치
     - rubyinstaller.org/downloads 접속
     - Ruby+Devkit (With Devkit) 다운 (예: Ruby+Devkit 3.2.X (x64))
@@ -120,7 +120,7 @@
     - _posts 폴더안에 _posts YYYY-MM-DD-제목.markdown 파일로 공부 유형별로 생성
 
 ## 2026-5-17
-# Hugo + GitHub Pages 만들어보기
+# [GitHub Pages] Hugo 만들어보기(Claude AI도움)
 1. Hugo 설치
     - winget install Hugo.Hugo.Extended
     - hugo version
@@ -142,7 +142,7 @@
     - hugo.toml 첫화면에서 메뉴부분 추가
 
 ## 2026-5-18
-# React + GitHub Pages 만들어보기
+# [GitHub Pages] React 만들어보기(Claude AI도움)
 1. React 기초(무료 학습 ko.react.dev)
     - 컴포넌트 : 레고 블록처럼 UI를 조각으로 나누는 것
     - props : 컴포넌트에 데이터 전달하는 방법
@@ -186,6 +186,10 @@
     - content/blog 아래 폴더 만든후 index.md 만든어서 작성
     - 로컬확인(gatsby develop 명령어 입력후 localhost:8000 확인)
     - 글 수정후 npm run deploy
+
+#  [GitHub Pages] posts.json + vanilla JS 만들어보기(Cursor AI도움)
+1. posts.json에 카테고리를 만들면됨.
+2. .js는 자동생성해줌
 
 ## 2026-5-18
 1. 훈련과정
