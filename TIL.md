@@ -187,5 +187,40 @@
     - 로컬확인(gatsby develop 명령어 입력후 localhost:8000 확인)
     - 글 수정후 npm run deploy
 
-## 2026-5-19
-    # Notion 배우기
+## 2026-5-18
+1. 훈련과정
+    - 훈련명 : 심화_생성형 AI와 AWS 클라우드를 활용한 풀스택 & 자동화 실무 개발
+    - 2026-04-06 ~ 2026-06-10 / 44일 /348시간
+    - 수업시간 : 09:20~18:00
+    - 주요 수업 스킬 : 파이썬, Github, AI활용, RPA, 배포(Lender, EC2)
+2. URL
+    - 로그인 : https://fs.free.nf/ (봉재근/5910)
+    - 교육자료 : https://codingand.notion.site/348h-31c2620edc19803a92ebf32b25a3e921
+    - 포트폴리오 : https://bongjk220.github.io/fs/
+    - 파이썬 : 
+    - semi 프로젝트 피그마 : https://www.figma.com/design/XvnmqAsFxyv0a343COhrU3/%EC%84%B8%EB%AF%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=0-1&t=Sxk1ONKK6YseL9x6-0
+    - final 프로젝트 피그마 : https://www.figma.com/design/IcdlOvKdCXGfgdci1n9H0V/%ED%8C%8C%EC%9D%B4%EB%84%90-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=12-3&p=f&t=opn7GtEYQl7KAPVF-0
+3. 활용AI
+    - 윈드서프 : https://windsurf.com/
+    - 클로드 : https://claude.ai/
+    - codex : https://openai.com/ko-KR/codex/
+    - notion : https://www.notion.so/
+    - Antigravity : https://antigravity.google/
+    - cursor : https://cursor.com/ko
+    - 마누스 : https://manus.im
+    - 코파일럿 : https://github.com/copilot
+    - 제미나이 : https://gemini.google.com
+    - lovable : https://lovable.de
+4. 주요 AI MD 파일 표준 및 종류
+    - CLAUDE.md: 클로드(Claude) 코드 환경에서 실행 시 자동으로 읽히는 텍스트 파일로, 프로젝트 규칙이나 AI의 역할을 명시하여 근본적인 기억 상실 문제를 해결합니다.
+    - AGENTS.md: AI 코딩 에이전트를 위해 설계된 오픈 포맷 표준입니다. 개발 환경 설치 명령어, 코딩 컨벤션, 테스트 방법 등을 포함합니다.
+    - DESIGN.md: UI/UX 디자인 시스템의 규칙을 담은 문서입니다. AI가 이를 참고해 브랜드의 일관된 디자인을 유지하도록 돕습니다.
+    - SKILL.md: AI가 특정 업무를 수행할 때 따라야 할 지식과 실행 절차를 담은 작업 지침서입니다.
+5. 기타
+    - 랜더 : render.com
+    - EC2 : https://aws.amazon.com/ko/pm/ec2
+    - Inpa : https://inpa.tistory.com/
+    - RPA참조 : https://wikidocs.net/book/18237
+
+
+# Notion 배우기
