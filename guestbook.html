@@ -178,7 +178,11 @@
         const { data, error } = await sbClient
           .from('guestbook')
           .insert([
-            { name: nameInput.value, message: messageInput.value }
+            { 
+              name: nameInput.value, 
+              message: messageInput.value,
+              created_at: new Date().toISOString() // 현재 시간을 명시적으로 추가
+            }
           ])
           .select();
 
