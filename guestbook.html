@@ -154,7 +154,7 @@
         renderMessages(data);
       } catch (error) {
         console.error('방명록 불러오기 실패:', error);
-        gbList.innerHTML = '<div class="empty-state" style="color: red;">데이터를 불러오는 데 실패했습니다.</div>';
+        gbList.innerHTML = `<div class="empty-state" style="color: red;">데이터를 불러오는 데 실패했습니다.<br><br><strong>원인:</strong> ${error.message || JSON.stringify(error)}</div>`;
       }
     }
 
@@ -190,7 +190,7 @@
         await fetchGuestbook();
       } catch (error) {
         console.error('방명록 작성 실패:', error);
-        alert('작성에 실패했습니다. 콘솔을 확인해주세요.');
+        alert(`작성에 실패했습니다.\n원인: ${error.message || JSON.stringify(error)}`);
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = '등록하기 ↗';
