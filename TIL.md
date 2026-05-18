@@ -218,7 +218,7 @@
     - SKILL.md: AI가 특정 업무를 수행할 때 따라야 할 지식과 실행 절차를 담은 작업 지침서입니다.
 5. 기타
     - 랜더 : render.com
-    - EC2 : https://aws.amazon.com/ko/pm/ec2
+    - EC2 : https://aws.amazon.com/ko/pm/ec2 (bjk001ai/bjk001admin/대현)
     - Inpa : https://inpa.tistory.com/
     - RPA참조 : https://wikidocs.net/book/18237
 
