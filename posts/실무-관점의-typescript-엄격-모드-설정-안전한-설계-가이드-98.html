@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>실무 관점의 TypeScript 엄격 모드 설정 안전한 설계 가이드 (#98) | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">design</div>
+    <h1>🎨 실무 관점의 TypeScript 엄격 모드 설정 안전한 설계 가이드 (#98)</h1>
+    <p class="article-meta">2026.05.12 · Dev.log</p>
+    <div class="article-body">
+<h2>🎨 완벽한 다크 모드(Dark Mode) 설계를 위한 고급 색채 디자인 이론</h2>
+<p>개발자 포털에 적용할 세련되고 신비로운 분위기를 연출하기 위해서는 단순히 흰색 배경을 완전한 검은색(<code>#000000</code>)으로 반전시키는 방식은 절대 금물입니다. 이는 강한 눈의 피로도와 글래스 투명도 반사의 부자연스러움을 야기합니다. 조화롭고 눈이 편안한 색채 규칙을 알아봅니다.</p>
+<h3>🎨 다크 모드 주요 명도 규칙</h3>
+<ol>
+<li> <strong>순수 블랙 지양</strong>: 은은하고 부드러운 다크 그레이 및 네이비 색조(<code>#090d16</code> 또는 <code>#0b0f19</code>)를 기본 백그라운드로 지정하면 눈의 대비 압박을 덜어주며 깊이감 구현이 용이합니다.</li>
+<li> <strong>HSL 색상 모델 적극 사용</strong>: 명도 제어가 편리한 HSL(Hue, Saturation, Lightness) 모델을 스타일 변수로 선언하고 컴포넌트 레이어 깊이마다 Lightness 값을 5% ~ 10% 단위로 미세 조정하여 가독성을 높입니다.</li>
+<li> <strong>네온 글로우 포인트 활용</strong>: 다크 그레이 베이스 위에는 시안(<code>#06b6d4</code>), 퍼플(<code>#a855f7</code>) 계열의 채도가 높은 파스텔 네온 색상을 강조 컬러로 지정하여 밋밋함을 탈피하고 세련된 포인트를 완성합니다.</li>
+</ol>
+<pre><code>/* 가독성 높은 다크 모드 계층 변수 구조 예시 */
+:root {
+  --bg-base: hsl(220, 30%, 6%);
+  --bg-card: hsl(220, 25%, 11%);
+  --text-primary: hsl(220, 10%, 95%);
+}</code></pre>
+<p>사용자의 시력을 보존하고 오랜 시간 오랫동안 글에 몰입하게 돕는 배려 넘치는 다크 모드 설계 노하우는 디자인의 품격을 한 단계 끌어올리는 중요한 마법입니다.</p>
+<h2>💡 실무 심화 팁 #98</h2>
+<p>의존성 버전 고정은 재현 가능한 빌드의 핵심입니다. <code>package-lock.json</code> 또는 <code>pnpm-lock.yaml</code>을 반드시 커밋하고, 메이저 업그레이드 시에는 별도 브랜치에서 충분히 검증하세요.</p>
+<blockquote>이 아티클은 실무 경험을 바탕으로 작성된 시리즈 콘텐츠입니다. 연관 포스트를 함께 읽으면 더 깊은 이해를 얻을 수 있습니다.</blockquote>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

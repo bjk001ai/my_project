@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>마크다운(Markdown) 문법 완벽 가이드 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">DevKit</div>
+    <h1>📝 마크다운(Markdown) 문법 완벽 가이드</h1>
+    <p class="article-meta">2026.05.22 · Dev.log</p>
+    <div class="article-body">
+<h1>마크다운(Markdown)이란?</h1>
+<p>마크다운은 텍스트 기반의 가벼운 마크업 언어로, 문법이 쉽고 직관적이어서 개발자들의 문서 작성, 리드미(README) 파일, 블로그 포스팅 등 다양한 곳에서 널리 사용됩니다.</p>
+<h2>1. 제목 (Header)</h2>
+<p><code>#</code>을 사용하여 H1부터 H6까지의 제목을 표현합니다.</p>
+<pre><code># H1 (가장 큰 제목)
+## H2
+### H3
+#### H4
+##### H5
+###### H6 (가장 작은 제목)</code></pre>
+<h2>2. 강조 (Emphasis)</h2>
+<p>글자의 스타일을 지정할 때 사용합니다.</p>
+<ul>
+<li><strong>굵게(Bold)</strong>: <code><strong>굵게</strong></code> 또는 <code>__굵게__</code></li>
+<li><em>기울임(Italic)</em>: <code><em>기울임</em></code> 또는 <code>_기울임_</code></li>
+<li>~~취소선(Strikethrough)~~: <code>~~취소선~~</code></li>
+</ul>
+<h2>3. 리스트 (List)</h2>
+<h3>순서가 있는 리스트 (Ordered List)</h3>
+<p>숫자와 마침표를 사용합니다.</p>
+<pre><code>1. 첫 번째 항목
+2. 두 번째 항목
+3. 세 번째 항목</code></pre>
+<h3>순서가 없는 리스트 (Unordered List)</h3>
+<p><code>-</code>, <code>*</code>, <code>+</code>를 사용할 수 있습니다.</p>
+<pre><code>- 사과
+  - 빨간 사과
+  - 초록 사과
+- 바나나</code></pre>
+<h2>4. 인용구 (Blockquotes)</h2>
+<p><code>&gt;</code> 문자를 사용하여 인용구를 작성합니다. 중첩도 가능합니다.</p>
+<blockquote>훌륭한 개발자는 문제를 코드로 해결하는 사람이 아니라, 문제를 없애는 사람이다.</blockquote>
+<p>&gt;&gt; 명언 중의 명언!</p>
+<h2>5. 링크와 이미지</h2>
+<h3>링크 (Link)</h3>
+<p><code><a href="URL 주소">보여줄 텍스트</a></code> 형태로 작성합니다.</p>
+<p><a href="https://google.com">Google 홈페이지</a></p>
+<h3>이미지 (Image)</h3>
+<p>링크 앞에 <code>!</code>를 붙입니다.</p>
+<p><code>!<a href="이미지 URL">대체 텍스트</a></code></p>
+<h2>6. 코드 블록 (Code Block)</h2>
+<p>인라인 코드는 백틱(<code>) 하나로 감싸고, 여러 줄의 코드는 백틱 세 개(</code><code></code>)로 감쌉니다. 시작 백틱 뒤에 언어 이름을 적으면 문법 강조(Syntax Highlighting)가 적용됩니다.</p>
+<pre><code>function helloWorld() {
+  console.log("Hello, Markdown!");
+}</code></pre>
+<h2>7. 표 (Table)</h2>
+<p>파이프(<code>|</code>)와 하이픈(<code>-</code>)을 사용하여 표를 생성합니다. 콜론(<code>:</code>)으로 정렬을 설정할 수 있습니다.</p>
+<p>| 왼쪽 정렬 | 가운데 정렬 | 오른쪽 정렬 |</p>
+<p>| :-------- | :---------: | --------: |</p>
+<p>| Apple     | Red         | $1.00     |</p>
+<p>| Banana    | Yellow      | $0.50     |</p>
+<p>---</p>
+<p>마크다운은 배우기 쉬우면서도 강력한 문서 작성 도구입니다. 자주 사용하여 손에 익히는 것이 중요합니다!</p>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

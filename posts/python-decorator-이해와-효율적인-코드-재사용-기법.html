@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python Decorator(@) 이해와 효율적인 코드 재사용 기법 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">Python</div>
+    <h1>🐍 Python Decorator(@) 이해와 효율적인 코드 재사용 기법</h1>
+    <p class="article-meta">2026.05.22 · Dev.log</p>
+    <div class="article-body">
+<h1>파이썬 데코레이터(@) 핵심 개념 마스터하기</h1>
+<p>파이썬 코드를 읽다 보면 함수 위에 얹어진 <code>@my_decorator</code> 형태의 구조를 자주 접합니다. 이는 기존 코드의 변경 없이 함수의 행동 양식을 꾸며주고(decorate) 확장할 수 있게 만들어주는 고급 설계 기법입니다.</p>
+<h2>1. 데코레이터의 기본 원리</h2>
+<p>파이썬에서 함수는 <strong>일급 객체(First-Class Object)</strong>이므로 함수를 다른 함수의 인자로 전달하고 반환할 수 있는 성질을 이용합니다.</p>
+<pre><code>def log_execution_time(func):
+    def wrapper(*args, **kwargs):
+        print(f"[LOG] {func.__name__} 함수가 호출되었습니다.")
+        result = func(*args, **kwargs)
+        print(f"[LOG] {func.__name__} 실행이 완료되었습니다.")
+        return result
+    return wrapper
+
+@log_execution_time
+def process_data(data):
+    print(f"데이터 처리 중: {data}")
+
+process_data("Bong Tech Blog")</code></pre>
+<p>코드 중복을 획기적으로 줄이고 공통 기능(인증 체크, 성능 측정, 에러 처리)을 깔끔하게 유지할 수 있습니다.</p>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

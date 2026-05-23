@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Docker 컨테이너와 Docker Compose | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">DevOps</div>
+    <h1>🔄 Docker 컨테이너와 Docker Compose</h1>
+    <p class="article-meta">2026.05.22 · Dev.log</p>
+    <div class="article-body">
+<h1>Docker: 내 컴퓨터에서 되는데 왜 서버에선 안 될까?</h1>
+<p>개발 환경과 운영 환경의 불일치 문제는 개발자들을 오랫동안 괴롭혀왔습니다. Docker는 애플리케이션을 실행하는 데 필요한 모든 것을 <strong>컨테이너(Container)</strong> 라는 표준화된 단위로 패키징하여, 어디서든 동일하게 실행될 수 있도록 보장합니다.</p>
+<h2>핵심 개념</h2>
+<ul>
+<li><strong>이미지(Image)</strong>: 컨테이너를 실행하기 위해 필요한 프로그램, 라이브러리, 소스 코드 등을 묶어놓은 읽기 전용 템플릿입니다. (예: 붕어빵 틀)</li>
+<li><strong>컨테이너(Container)</strong>: 이미지를 실행한 상태로, 격리된 환경에서 돌아가는 프로세스입니다. (예: 구워진 붕어빵)</li>
+</ul>
+<h2>1. Dockerfile 작성하기</h2>
+<p>나만의 이미지를 만들기 위한 설정 파일입니다.</p>
+<pre><code># 1. Base 이미지 설정
+FROM node:18-alpine
+
+# 2. 작업 디렉토리 설정
+WORKDIR /app
+
+# 3. 의존성 파일 복사 및 설치
+COPY package*.json ./
+RUN npm install
+
+# 4. 소스 코드 복사
+COPY . .
+
+# 5. 실행 포트 설정
+EXPOSE 3000
+
+# 6. 실행 명령어
+CMD ["npm", "start"]</code></pre>
+<h2>2. 기본 명령어 모음</h2>
+<ul>
+<li><code>docker build -t my-app .</code> : Dockerfile을 기반으로 이미지 빌드</li>
+<li><code>docker run -p 3000:3000 my-app</code> : 이미지로 컨테이너 실행</li>
+<li><code>docker ps</code> : 실행 중인 컨테이너 목록 확인</li>
+<li><code>docker stop &lt;container_id&gt;</code> : 컨테이너 중지</li>
+<li><code>docker rm &lt;container_id&gt;</code> : 컨테이너 삭제</li>
+<li><code>docker rmi &lt;image_id&gt;</code> : 이미지 삭제</li>
+</ul>
+<h2>3. Docker Compose</h2>
+<p>여러 개의 컨테이너(웹 서버, 데이터베이스, 캐시 서버 등)를 한 번에 띄우고 관리할 수 있게 해주는 도구입니다. <code>docker-compose.yml</code> 파일에 설정합니다.</p>
+<pre><code>version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=db
+      
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:</code></pre>
+<p>터미널에서 <code>docker-compose up -d</code> 명령어 한 번이면 웹 서버와 데이터베이스가 서로 연결된 상태로 백그라운드에서 동시에 실행됩니다! 도커는 현대 백엔드 개발과 DevOps의 알파이자 오메가입니다.</p>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

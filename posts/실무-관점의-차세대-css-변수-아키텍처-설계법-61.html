@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>실무 관점의 차세대 CSS 변수 아키텍처 설계법 (#61) | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">design</div>
+    <h1>🎨 실무 관점의 차세대 CSS 변수 아키텍처 설계법 (#61)</h1>
+    <p class="article-meta">2026.05.16 · Dev.log</p>
+    <div class="article-body">
+<h2>🎨 Tailwind CSS v4 반응형 레이아웃 설계 가이드</h2>
+<p>Tailwind CSS v4가 마침내 릴리즈되며, 새로운 빌더 엔진 탑재와 파격적인 CSS 변수 네이티브 최적화 기능이 포함되었습니다. 이번 튜토리얼에서는 보다 강력해진 <strong>컨테이너 쿼리(Container Queries)</strong>와 리액티브 그리드를 활용한 반응형 UI 레이아웃 설계 방식을 소개합니다.</p>
+<h3>🌟 Tailwind CSS v4 주요 개선 사항</h3>
+<ul>
+<li>  <strong>Rust 기반 초고속 컴파일러</strong>: 빌드 타임이 이전 버전 대비 최대 10배 이상 비약적으로 빨라졌습니다.</li>
+<li>  <strong>CSS-First 환경 설정</strong>: 복잡했던 <code>tailwind.config.js</code> 대신 표준 CSS 커스텀 속성(Variables)을 활용하여 스타일 테마를 재정의합니다.</li>
+<li>  <strong>컨테이너 쿼리 기본 지원</strong>: 브라우저 뷰포트 크기가 아닌, 해당 컴포넌트 부모 박스의 너비에 반응하는 마이크로 레이아웃 배치가 가능해졌습니다.</li>
+</ul>
+<pre><code>/* Tailwind v4 스타일 커스터마이징 예제 */
+@theme {
+  --color-brand-neon: #39ff14;
+  --font-display: 'Outfit', sans-serif;
+}</code></pre>
+<h3>🛠️ 실제 반응형 컴포넌트 작성 팁</h3>
+<p>이제 미디어 쿼리(<code>sm:</code>, <code>md:</code>, <code>lg:</code>)의 한계를 극복하고 <code>@container</code> 속성을 적용하여 카드가 속한 슬롯 크기에 맞춤형 레이아웃 분기가 가능합니다. 사이드바가 접히고 열리는 대시보드 구조에서 컴포넌트 스타일 깨짐 현상을 근본적으로 차단할 수 있습니다.</p>
+<h2>💡 실무 심화 팁 #61</h2>
+<p>성능 벤치마크를 반드시 측정하세요. 최적화를 논할 때 직관에 의존하면 실제로 병목이 되는 지점을 놓치기 쉽습니다. <code>console.time()</code> 또는 Lighthouse 등의 도구로 정량적 데이터를 확보하세요.</p>
+<blockquote>이 아티클은 실무 경험을 바탕으로 작성된 시리즈 콘텐츠입니다. 연관 포스트를 함께 읽으면 더 깊은 이해를 얻을 수 있습니다.</blockquote>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

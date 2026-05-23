@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Git Rebase vs Git Merge: 브랜치 히스토리 깔끔하게 관리하기 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">Github</div>
+    <h1>📝 Git Rebase vs Git Merge: 브랜치 히스토리 깔끔하게 관리하기</h1>
+    <p class="article-meta">2026.05.23 · Dev.log</p>
+    <div class="article-body">
+<h1>Git 브랜치 전략의 양대 산맥: Merge와 Rebase 비교 및 활용법</h1>
+<p>협업 프로젝트를 진행할 때 수많은 개발자의 커밋 이력이 뒤엉켜 깃 그래프가 복잡한 그물망처럼 변하는 현상을 많이 겪어보셨을 것입니다. 히스토리를 정돈하는 두 방법의 원리와 차이점을 깊이 살펴봅시다.</p>
+<h2>1. Git Merge (병합)</h2>
+<ul>
+<li><strong>동작</strong>: 두 브랜치의 변경 이력을 하나로 합치는 새로운 <strong>Merge Commit</strong>을 생성합니다.</li>
+<li><strong>장점</strong>: 개발을 진행했던 브랜치 분기점과 병합 시점을 있는 그대로 보존하여 히스토리 역추적이 쉽습니다.</li>
+<li><strong>단점</strong>: 그래프가 지나치게 지저분해져 커밋 히스토리를 읽기 어려워질 수 있습니다.</li>
+</ul>
+<p>---</p>
+<h2>2. Git Rebase (재배치)</h2>
+<ul>
+<li><strong>동작</strong>: 현재 브랜치의 시작 위치(Base)를 대상 브랜치의 최신 커밋 위치로 통째로 옮겨 커밋 이력을 <strong>일렬(Linear History)</strong>로 다시 작성합니다.</li>
+<li><strong>장점</strong>: 히스토리가 군더더기 없이 일직선으로 그려져 가독성이 예술입니다!</li>
+<li><strong>단점</strong>: 이미 원격 리포지토리에 푸시된 커밋에 대해 Rebase를 실행하면 충돌 대란이 일어나고 기존 커밋 해시가 깨지므로 절대적으로 로컬 환경에서만 신중하게 사용해야 합니다.</li>
+</ul>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

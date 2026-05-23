@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>협업을 위한 Git 브랜치 전략 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">DevKit</div>
+    <h1>📝 협업을 위한 Git 브랜치 전략</h1>
+    <p class="article-meta">2026.05.22 · Dev.log</p>
+    <div class="article-body">
+<h1>Git Flow와 협업의 정석</h1>
+<p>개발자 혼자서 코딩할 때는 <code>main</code> 브랜치 하나만 써도 상관없지만, 팀 단위로 협업을 시작하면 체계적인 브랜치 관리 전략이 필수적입니다. 가장 대표적인 전략이 바로 <strong>Git Flow</strong>입니다.</p>
+<h2>Git Flow의 5가지 브랜치</h2>
+<ol>
+<li><strong><code>main</code> (또는 <code>master</code>)</strong>:</li>
+</ol>
+<ul>
+<li>언제든 배포 가능한 상태를 유지하는 메인 브랜치입니다.</li>
+<li>직접 커밋하지 않습니다.</li>
+</ul>
+<ol>
+<li><strong><code>develop</code></strong>:</li>
+</ol>
+<ul>
+<li>다음 버전을 개발하는 중심 브랜치입니다. 기능 개발이 완료되면 여기로 병합(Merge)됩니다.</li>
+</ul>
+<ol>
+<li><strong><code>feature/...</code></strong>:</li>
+</ol>
+<ul>
+<li>새로운 기능을 개발할 때 <code>develop</code> 브랜치에서 분기하여 생성합니다.</li>
+<li>예: <code>feature/login-ui</code></li>
+<li>개발이 완료되면 <code>develop</code>으로 병합 후 삭제합니다.</li>
+</ul>
+<ol>
+<li><strong><code>release/...</code></strong>:</li>
+</ol>
+<ul>
+<li>배포를 준비하는 브랜치입니다. <code>develop</code>에서 분기하며, 버그 수정 및 문서 업데이트만 수행합니다.</li>
+<li>준비가 완료되면 <code>main</code>과 <code>develop</code>에 병합하고 버전을 태깅(Tag)합니다.</li>
+</ul>
+<ol>
+<li><strong><code>hotfix/...</code></strong>:</li>
+</ol>
+<ul>
+<li><code>main</code> 브랜치(운영 환경)에서 발생한 치명적인 버그를 긴급 수정할 때 사용합니다.</li>
+<li>수정 완료 후 <code>main</code>과 <code>develop</code>에 모두 병합합니다.</li>
+</ul>
+<h2>실무 협업 흐름 (GitHub Flow)</h2>
+<p>최근에는 무중단 배포(CI/CD)가 보편화되면서, Git Flow보다 단순한 <strong>GitHub Flow</strong>가 많이 쓰입니다.</p>
+<ol>
+<li><code>main</code>에서 기능 개발을 위한 브랜치를 생성합니다. (예: <code>feature/add-button</code>)</li>
+<li>변경 사항을 커밋하고 푸시합니다.</li>
+<li><strong>Pull Request (PR)</strong> 를 열고 팀원들에게 코드 리뷰를 요청합니다.</li>
+<li>리뷰와 피드백이 완료되면 PR을 Merge하여 <code>main</code> 브랜치에 합칩니다.</li>
+<li>병합된 즉시 자동화된 파이프라인(GitHub Actions)을 통해 서비스에 자동 배포됩니다.</li>
+</ol>
+<h2>자주 쓰는 고급 명령어</h2>
+<ul>
+<li><code>git stash</code>: 작업 중이던 코드를 커밋하지 않고 임시로 보관할 때 사용합니다.</li>
+<li><code>git rebase -i HEAD~3</code>: 최근 3개의 커밋을 합치거나 수정하여 커밋 히스토리를 깔끔하게 정리할 때 사용합니다.</li>
+<li><code>git cherry-pick &lt;commit_id&gt;</code>: 다른 브랜치의 특정 커밋만 내 브랜치로 가져오고 싶을 때 사용합니다.</li>
+</ul>
+<p>코드를 잘 짜는 것만큼이나, Git을 통해 협업 이력을 잘 관리하는 것도 훌륭한 개발자의 덕목입니다!</p>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

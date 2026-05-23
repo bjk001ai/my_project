@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RESTful API vs GraphQL: 백엔드 API 설계 트렌드 총정리 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">CS 지식</div>
+    <h1>🧠 RESTful API vs GraphQL: 백엔드 API 설계 트렌드 총정리</h1>
+    <p class="article-meta">2026.05.22 · Dev.log</p>
+    <div class="article-body">
+<h1>현대 백엔드 API 설계의 양대 패러다임 비교 분석</h1>
+<p>모바일이나 프론트엔드 어플리케이션과 데이터를 주고받기 위한 백엔드 인터페이스 표준 설계 방식인 <strong>REST API</strong>와 페이스북이 주도하는 <strong>GraphQL</strong>의 차이점과 프로젝트 성격에 맞춰 선택하는 기준을 수립해 봅니다.</p>
+<h2>1. RESTful API의 전통적 단점</h2>
+<ul>
+<li><strong>Over-fetching</strong>: 내가 필요한 데이터는 단 한 줄인데, API 응답에 50줄의 불필요한 전체 필드가 모두 담겨와 데이터 전송량이 낭비됩니다.</li>
+<li><strong>Under-fetching</strong>: 한 화면을 렌더링하기 위해 유저 정보 API, 게시글 정보 API, 댓글 정보 API를 각각 개별 호출(N+1 네트워크 레이턴시)해야 하는 비효율성이 따릅니다.</li>
+</ul>
+<p>---</p>
+<h2>2. GraphQL의 혁신적인 해결책</h2>
+<ul>
+<li><strong>단일 엔드포인트 (<code>/graphql</code> )</strong>: 클라이언트가 쿼리 문서를 작성해 "나에게 유저 이름과 최근 작성한 게시글 제목 3개만 줘"라고 명확히 선언하면, 백엔드는 단 한 번의 요청으로 요청한 데이터만 딱 알맞게 묶어서 전달합니다!</li>
+</ul>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

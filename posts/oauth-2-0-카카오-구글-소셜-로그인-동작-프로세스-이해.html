@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OAuth 2.0 카카오/구글 소셜 로그인 동작 프로세스 이해 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">CS 지식</div>
+    <h1>🧠 OAuth 2.0 카카오/구글 소셜 로그인 동작 프로세스 이해</h1>
+    <p class="article-meta">2026.05.22 · Dev.log</p>
+    <div class="article-body">
+<h1>소셜 로그인의 뼈대: OAuth 2.0 4단계 인증 시나리오 마스터</h1>
+<p>웹사이트 회원가입이 귀찮을 때 "카카오로 로그인"을 클릭하는 즉시 이루어지는 백엔드 및 인증 서비스간의 복잡한 인증 흐름을 완전히 도식화하여 완벽하게 머릿속에 이식해 드립니다.</p>
+<h2>1. OAuth 2.0 핵심 참여자</h2>
+<ul>
+<li><strong>Resource Owner</strong>: 일반 사용자</li>
+<li><strong>Client</strong>: 소셜 로그인을 제공하려는 우리 서비스</li>
+<li><strong>Authorization Server</strong>: 카카오/구글 로그인 서버</li>
+<li><strong>Resource Server</strong>: 사용자 프로필 정보를 가진 카카오/구글의 리소스 API 서버</li>
+</ul>
+<p>---</p>
+<h2>2. 인증 토큰 발급 프로세스 흐름</h2>
+<ol>
+<li>사용자가 소셜 로그인 버튼 클릭 -&gt; 카카오 로그인 화면 노출 및 동의</li>
+<li>인증 성공 시 카카오는 우리 백엔드의 리다이렉트 URL로 일회용 <strong>Authorization Code(인가 코드)</strong> 전달</li>
+<li>우리 백엔드는 전달받은 인가 코드를 카카오 인증 서버에 재전송하여 신뢰할 수 있는 <strong>Access Token(액세스 토큰)</strong>과 교환</li>
+<li>액세스 토큰으로 카카오 리소스 서버에 유저의 닉네임, 이메일, 아바타 이미지를 요청해와 로그인 처리를 완료합니다.</li>
+</ol>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>실무 관점의 API 캐시 라우팅 디버깅 실무 (#86) | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">tech</div>
+    <h1>🗂 실무 관점의 API 캐시 라우팅 디버깅 실무 (#86)</h1>
+    <p class="article-meta">2026.05.13 · Dev.log</p>
+    <div class="article-body">
+<h2>🗂️ 실무 개발자를 위한 Postgres 인덱스(Indexing) 설계 패턴 총정리</h2>
+<p>수천만 건이 넘는 대규모 데이터셋을 활용할 때 올바르지 않은 인덱스는 데이터베이스 쿼리를 수 초 이상 지연시키는 최악의 병목입니다. <strong>Postgres</strong>의 다양한 인덱스 구조와 실무에서 꼭 지켜야 하는 동작 규칙을 완벽 정리합니다.</p>
+<h3>🔍 주요 인덱스 종류의 적재적소 선택 가이드</h3>
+<ul>
+<li>  <strong>B-Tree 인덱스</strong>: 대부분의 기본 인덱스로 쓰이며 크다(<code>&gt;</code>), 작다(<code>&lt;</code>), 같다(<code>=</code>) 등의 비교 연산과 범위 검색에 매우 유용합니다.</li>
+<li>  <strong>GIN (Generalized Inverted Index)</strong>: 배열 데이터나 JSONB 타입 내부 필드의 요소를 복합적으로 색인하는 데 최고의 선택입니다.</li>
+<li>  <strong>Hash 인덱스</strong>: 단순 동등 비교(<code>=</code>) 조건에만 동작하며, 고유 키 스캔 속도를 최대치로 빠르게 올려줍니다.</li>
+</ul>
+<pre><code>-- 복합 인덱스 생성 실무 SQL문 예시
+CREATE INDEX idx_posts_category_created 
+ON posts (category_id, created_at DESC);</code></pre>
+<h3>⚠️ 인덱스 적용 시의 주요 주의 사항</h3>
+<p>인덱스는 만능이 아닙니다! 모든 테이블 컬럼에 무분별하게 추가하면, <code>INSERT</code>, <code>UPDATE</code> 및 <code>DELETE</code>를 수행할 때마다 매번 인덱스 트리 구조를 새롭게 연산하여 갱신해야 하므로 쓰기 성능이 급격히 손실됩니다. 정밀한 실행 계획 분석(<code>EXPLAIN ANALYZE</code>)을 동반하여 탐색 주기를 꼭 파악하시기 바랍니다.</p>
+<h2>💡 실무 심화 팁 #86</h2>
+<p>레거시 코드를 리팩토링할 때는 <strong>스트랭글러 피그(Strangler Fig)</strong> 패턴이 유용합니다. 레거시 코드 주변에 새 코드를 조금씩 덧붙이며, 레거시 코드가 점점 "질식"하도록 교체해 나가세요.</p>
+<blockquote>이 아티클은 실무 경험을 바탕으로 작성된 시리즈 콘텐츠입니다. 연관 포스트를 함께 읽으면 더 깊은 이해를 얻을 수 있습니다.</blockquote>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

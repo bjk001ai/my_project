@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TypeScript 기초부터 실전까지 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">Programming</div>
+    <h1>📝 TypeScript 기초부터 실전까지</h1>
+    <p class="article-meta">2026.05.22 · Dev.log</p>
+    <div class="article-body">
+<h1>TypeScript의 세계로</h1>
+<p>TypeScript는 JavaScript의 슈퍼셋(Superset)으로, 동적 타입 언어인 JavaScript에 <strong>정적 타입 검사(Static Type Checking)</strong> 기능을 추가한 언어입니다. 마이크로소프트에서 개발 및 유지보수하고 있으며, 현재 대부분의 모던 웹 개발 생태계의 표준으로 자리 잡고 있습니다.</p>
+<h2>왜 TypeScript를 써야 할까?</h2>
+<ol>
+<li><strong>컴파일 단계의 오류 발견</strong>: 코드를 실행하기 전 에디터에서 오류를 잡아줍니다.</li>
+<li><strong>강력한 자동 완성</strong>: 객체의 프로퍼티나 함수 인자에 대한 추론을 통해 생산성을 극대화합니다.</li>
+<li><strong>안전한 리팩토링</strong>: 코드를 수정할 때 발생하는 사이드 이펙트를 타입을 통해 사전에 차단합니다.</li>
+</ol>
+<h2>핵심 개념 요약</h2>
+<h3>1. 기본 타입 지정</h3>
+<p>변수 이름 뒤에 <code>:</code>를 붙여 타입을 선언합니다.</p>
+<pre><code>let isDone: boolean = false;
+let age: number = 25;
+let userName: string = "Bong";
+let numbers: number[] = [1, 2, 3];</code></pre>
+<h3>2. 인터페이스 (Interface)</h3>
+<p>객체의 구조를 정의하는 역할을 합니다. 가장 많이 사용되는 기능 중 하나입니다.</p>
+<pre><code>interface User {
+  id: number;
+  name: string;
+  age?: number; // 선택적 프로퍼티 (?)
+  readonly createdAt: Date; // 읽기 전용 프로퍼티
+}
+
+const user: User = {
+  id: 1,
+  name: "Bong Dev",
+  createdAt: new Date()
+};</code></pre>
+<h3>3. 타입 별칭 (Type Alias)</h3>
+<p>특정 타입에 이름을 붙이는 용도 부릅니다. Union, Intersection 타입 등에 유용합니다.</p>
+<pre><code>type ID = string | number;
+type Status = "Pending" | "Success" | "Failed";
+
+let currentStatus: Status = "Success";</code></pre>
+<h3>4. 제네릭 (Generics)</h3>
+<p>타입을 마치 함수의 인자처럼 받아서, 재사용성 높은 컴포넌트나 함수를 만들 수 있습니다.</p>
+<pre><code>function identity&lt;T&gt;(arg: T): T {
+  return arg;
+}
+
+let output1 = identity&lt;string&gt;("myString");
+let output2 = identity&lt;number&gt;(100);</code></pre>
+<h3>5. 유틸리티 타입</h3>
+<p>이미 정의된 타입을 변환할 때 사용하는 내장 타입들입니다.</p>
+<ul>
+<li><code>Partial&lt;T&gt;</code>: 모든 프로퍼티를 선택적으로 만듭니다.</li>
+<li><code>Pick&lt;T, K&gt;</code>: 특정 프로퍼티만 선택합니다.</li>
+<li><code>Omit&lt;T, K&gt;</code>: 특정 프로퍼티를 제외합니다.</li>
+</ul>
+<pre><code>interface Post {
+  title: string;
+  description: string;
+  views: number;
+}
+
+type PostPreview = Pick&lt;Post, "title" | "description"&gt;;</code></pre>
+<p>TypeScript는 초기 학습 곡선이 있지만, 도입하고 나면 JavaScript로 돌아가기 힘들 정도로 개발 경험(DX)을 크게 향상시킵니다.</p>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MLOps의 기초: 머신러닝 생명주기 관리란 무엇인가? | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">MLOps</div>
+    <h1>🤖 MLOps의 기초: 머신러닝 생명주기 관리란 무엇인가?</h1>
+    <p class="article-meta">2026.05.23 · Dev.log</p>
+    <div class="article-body">
+<h1>MLOps (Machine Learning Operations) 핵심 이론 총정리</h1>
+<p>일반 소프트웨어 배포(DevOps)와 머신러닝 모델 배포(MLOps)의 차이는 무엇일까요? 머신러닝은 한 번 빌드해서 배포하고 끝나는 것이 아니라, 끊임없이 새로 들어오는 <strong>데이터의 변화</strong>에 대응해야 하기 때문에 훨씬 까다로운 수명 관리가 요구됩니다.</p>
+<h2>1. MLOps가 해결하려는 문제</h2>
+<ul>
+<li><strong>Data Drift</strong>: 시간의 흐름에 따라 실제 예측 환경의 데이터 특징이 학습 데이터와 완전히 달라지는 현상입니다.</li>
+<li><strong>Model Training Automation</strong>: 데이터가 업데이트될 때마다 자동으로 재학습하고 검증하여 롤아웃하는 CD 파이프라인의 핵심입니다.</li>
+</ul>
+<p>---</p>
+<h2>2. MLOps 생명주기 5단계</h2>
+<ol>
+<li><strong>데이터 수집 및 정제</strong>: 데이터 정합성과 버전 관리(DVC 등) 적용</li>
+<li><strong>모델 개발 및 실험</strong>: 하이퍼파라미터 튜닝 및 모델 추적 관리</li>
+<li><strong>CI/CD 파이프라인</strong>: 자동으로 모델 성능을 테스트하고 이미징</li>
+<li><strong>모델 배포</strong>: REST API(FastAPI)나 gRPC 형식의 마이크로서비스 서빙</li>
+<li><strong>모니터링</strong>: 서빙 품질, 추론 속도(Latency), 성능 저하 감시</li>
+</ol>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

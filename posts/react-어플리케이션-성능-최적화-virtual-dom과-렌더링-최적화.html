@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>React 어플리케이션 성능 최적화: Virtual DOM과 렌더링 최적화 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">React</div>
+    <h1>⚛️ React 어플리케이션 성능 최적화: Virtual DOM과 렌더링 최적화</h1>
+    <p class="article-meta">2026.05.23 · Dev.log</p>
+    <div class="article-body">
+<h1>React 렌더링 성능 정복: 60fps 부드러운 화면 만들기</h1>
+<p>리액트 앱이 복잡해질수록 미세한 렉(Lag)이나 버벅임이 발생할 수 있습니다. 리액트의 가상 돔(Virtual DOM) 알고리즘을 깊이 이해하고, 불필요한 연산을 막아 60프레임의 쾌적한 UX를 확보하는 꿀팁을 전수합니다.</p>
+<h2>1. 렌더링 성능 진단도구 활용</h2>
+<ul>
+<li><strong>React Developer Tools</strong>: 프로파일러(Profiler) 탭을 켜서 어떤 컴포넌트가 언제, 왜 리렌더링되었는지 색상 그래프로 한눈에 확인할 수 있습니다.</li>
+</ul>
+<p>---</p>
+<h2>2. 대표적인 최적화 기법</h2>
+<ol>
+<li><strong>상태 분리 및 하향(State Colocation)</strong>: 특정 컴포넌트만 쓰는 상태를 불필요하게 최상위 Root 컴포넌트에 올리지 마세요. 해당 상태를 사용하는 말단 컴포넌트로 위치를 내리면 광범위한 리렌더링을 완전히 방지할 수 있습니다.</li>
+<li><strong><code>React.memo</code>를 통한 컴포넌트 불변화</strong>: Props 변화가 없는 순수 컴포넌트의 경우 리렌더링을 생략하도록 캐싱 처리합니다.</li>
+<li><strong>무거운 연산 제거</strong>: 배열 정렬, 복잡한 파싱 작업 등은 <code>useMemo</code>를 이용하여 의존성 배열이 바뀔 때만 연산되도록 가둡니다.</li>
+</ol>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

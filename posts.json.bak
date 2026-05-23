@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "visitors": 0
+  },
+  "categories": [
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "icon": "ti-brand-javascript",
+      "badge": "hot"
+    },
+    {
+      "id": "css",
+      "name": "CSS",
+      "icon": "ti-brand-css3",
+      "badge": "new"
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "icon": "ti-server",
+      "badge": null
+    },
+    {
+      "id": "database",
+      "name": "Database",
+      "icon": "ti-database",
+      "badge": null
+    },
+    {
+      "id": "git",
+      "name": "Git",
+      "icon": "ti-git-branch",
+      "badge": null
+    },
+    {
+      "id": "cs",
+      "name": "CS 지식",
+      "icon": "ti-brain",
+      "badge": null
+    }
+  ],
+  "posts": [
+    {
+      "title": "악명 높은 CORS 개념 & 해결법 정리 끝판왕",
+      "tag": "WEB 지식",
+      "categoryId": null,
+      "date": "2026-05-18",
+      "likes": 128,
+      "emoji": "🌐",
+      "url": "posts/cors.html"
+    },
+    {
+      "title": "자바스크립트 이벤트 루프 동작 구조 & 원리",
+      "tag": "JavaScript",
+      "categoryId": "javascript",
+      "date": "2026-05-18",
+      "likes": 94,
+      "emoji": "⚙️",
+      "url": "posts/event-loop.html"
+    },
+    {
+      "title": "SQL vs NoSQL, 뭘 써야 할까? 완벽 비교 정리",
+      "tag": "Database",
+      "categoryId": "database",
+      "date": "2026-05-18",
+      "likes": 61,
+      "emoji": "💾",
+      "url": "posts/sql-nosql.html"
+    },
+    {
+      "title": "DB 인덱스, 왜 쓰고 어떻게 타나?",
+      "tag": "Database",
+      "categoryId": "database",
+      "date": "2026-05-16",
+      "likes": 38,
+      "emoji": "📇",
+      "url": "posts/db-index.html"
+    },
+    {
+      "title": "Linux 명령어 모음 - 개발자가 꼭 알아야 할 것들",
+      "tag": "Linux",
+      "categoryId": "cs",
+      "date": "2026-05-18",
+      "likes": 47,
+      "emoji": "🐧",
+      "url": "posts/linux-commands.html"
+    },
+    {
+      "title": "Flexbox로 레이아웃 잡기",
+      "tag": "CSS",
+      "categoryId": "css",
+      "date": "2026-05-17",
+      "likes": 32,
+      "emoji": "🎨",
+      "url": "posts/css-flexbox.html"
+    }
+  ]
+}

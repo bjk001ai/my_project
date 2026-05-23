@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JWT(JSON Web Token) 로그인 토큰 인증 완벽 이해하기 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">CS 지식</div>
+    <h1>🧠 JWT(JSON Web Token) 로그인 토큰 인증 완벽 이해하기</h1>
+    <p class="article-meta">2026.05.22 · Dev.log</p>
+    <div class="article-body">
+<h1>서버리스 및 분산 시스템을 위한 JWT 기반 사용자 인증 아키텍처</h1>
+<p>기존 세션 기반 인증의 서버 메모리 팽창 문제를 완벽하게 해결해 주는 <strong>JWT (JSON Web Token)</strong>의 구조와 보안 강화 전략(AccessToken/RefreshToken)을 알기 쉽게 풀어 설명합니다.</p>
+<h2>1. JWT의 핵심 구성 세 가지</h2>
+<ul>
+<li><strong>Header</strong>: 토큰의 타입과 사용할 암호화 알고리즘 규격 기재 (e.g. HS256)</li>
+<li><strong>Payload</strong>: 사용자 식별 ID나 만료 시간(exp) 등 클레임 정보 저장 (디코딩하면 누구나 볼 수 있으므로 비밀번호 등의 민감한 정보는 절대 포함해서는 안 됩니다!)</li>
+<li><strong>Signature</strong>: 서버만 아는 비밀키로 생성한 암호 서명입니다. 이 서명이 일치해야 토큰의 위변조가 없었음을 보증받을 수 있습니다.</li>
+</ul>
+<p>데이터를 토큰 자체에 내장하고 있어 서버 측 세션 저장소가 불필요한 Stateless한 구조를 실현할 수 있습니다.</p>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

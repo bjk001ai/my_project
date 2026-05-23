@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>서버리스 에지 함수 성능 최적화 가이드 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">tech</div>
+    <h1>⚡ 서버리스 에지 함수 성능 최적화 가이드</h1>
+    <p class="article-meta">2026.05.23 · Dev.log</p>
+    <div class="article-body">
+<h2>⚡ 서버리스 에지 함수(Edge Functions) 대기 시간 및 콜드 스타트 극복</h2>
+<p>최신 클라우드 서버리스 패러다임은 중앙 인프라에서 벗어나 유저와 가장 밀접한 물리적 위치에서 코드를 실행하는 에지 라우팅으로 나아가고 있습니다. 본 고안에서는 V8 엔진 경량 함수를 통해 콜드 스타트 현상을 극복하고 초고속 웹을 설계하는 요령을 안내합니다.</p>
+<h3>🚀 콜드 스타트 현상의 핵심 원인</h3>
+<p>전형적인 서버리스(Serverless Lambda) 인프라는 일정 시간 요청이 인입되지 않으면 컨테이너 리소스를 회수합니다. 이후 첫 요청 발생 시 컨테이너 부팅 및 런타임 구동 시간으로 인해 짧게는 1초, 길게는 수 초의 딜레이(콜드 스타트)가 수반됩니다.</p>
+<h3>🛠️ 대기 시간 개선을 위한 세 가지 룰</h3>
+<ol>
+<li> <strong>에지 함수(Edge Web Workers) 도입</strong>: 경량 V8 엔진 기반의 서버리스 서비스(Netlify Edge Functions, Cloudflare Workers)는 별도의 컨테이너 기동 없이 수 밀리초 만에 코드를 실행하므로 지연을 사실상 완전히 없애줍니다.</li>
+<li> <strong>데이터베이스 커넥션 풀링</strong>: 에지 함수에서 무겁게 세팅되는 DB 드라이버 설정을 탈피하여 단일 단축 커넥션 설정을 적극 권장합니다.</li>
+<li> <strong>글로벌 캐싱 정책 최적화</strong>: API 라우트 응답 시 <code>Cache-Control: public, max-age=60, s-maxage=3600</code> 지정을 통해 전 세계 CDN 노드에 다이렉트 캐싱되도록 만듭니다.</li>
+</ol>
+<pre><code>// Netlify 엣지 환경 대응을 위한 단축 클라이언트 생성 예제
+const client = postgres(connectionString, { max: 1 });</code></pre>
+<p>에지 인프라와 고효율 코드가 만나면 클라우드 환경에서도 지연이 전혀 느껴지지 않는 매끄러운 고성능 어플리케이션을 완성할 수 있습니다.</p>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

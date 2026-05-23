@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python 비동기 프로그래밍 (asyncio와 코루틴 완벽 실습) | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">Python</div>
+    <h1>🐍 Python 비동기 프로그래밍 (asyncio와 코루틴 완벽 실습)</h1>
+    <p class="article-meta">2026.05.23 · Dev.log</p>
+    <div class="article-body">
+<h1>Python의 느린 성능을 보완하는 비동기 프로그래밍 완벽 이해</h1>
+<p>파이썬은 단일 쓰레드로 동작하여 I/O 바운드 작업(웹 스크래핑, 대량 데이터 API 요청) 시 막대한 병목 현상이 발생합니다. 이를 극적으로 타개하기 위한 파이썬의 비동기 프레임워크인 <strong><code>asyncio</code></strong>의 핵심 개념인 코루틴(Coroutine), <code>async/await</code>을 이해해 봅시다.</p>
+<h2>1. 동기 방식과 비동기 방식의 비교 실습</h2>
+<pre><code>import asyncio
+import time
+
+async def fetch_data(id, delay):
+    print(f"Task {id} 시작")
+    await asyncio.sleep(delay)  # 비동기 대기
+    print(f"Task {id} 완료")
+    return f"Data {id}"
+
+async def main():
+    start = time.time()
+    # 3개의 비동기 작업을 동시에 처리
+    results = await asyncio.gather(
+        fetch_data(1, 2),
+        fetch_data(2, 3),
+        fetch_data(3, 1)
+    )
+    print(f"총 소요시간: {time.time() - start:.2f}초")
+
+asyncio.run(main())</code></pre>
+<p>3개의 작업을 동기로 실행했다면 6초(2+3+1)가 걸렸겠지만, 비동기 처리를 통하여 <strong>가장 긴 대기 시간인 단 3초 만에</strong> 모든 연산이 깔끔하게 끝납니다!</p>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CI/CD 기초와 GitHub Actions 파이프라인 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">DevOps</div>
+    <h1>🔄 CI/CD 기초와 GitHub Actions 파이프라인</h1>
+    <p class="article-meta">2026.05.22 · Dev.log</p>
+    <div class="article-body">
+<h1>개발자의 삶의 질을 높이는 마법: CI/CD</h1>
+<p>개발자가 코드를 작성하고 서버에 접속해 <code>git pull</code>, <code>npm install</code>, <code>npm build</code>, <code>pm2 restart</code>를 수동으로 매번 치고 있다면, 심각한 리소스 낭비입니다. 이를 자동화하는 것이 바로 CI/CD입니다.</p>
+<h2>CI/CD란?</h2>
+<ul>
+<li><strong>CI (Continuous Integration, 지속적 통합)</strong>: 여러 개발자가 작성한 코드를 중앙 저장소에 주기적으로 합치고, 이 코드가 멀쩡한지 자동으로 빌드하고 테스트하는 과정입니다.</li>
+<li><strong>CD (Continuous Deployment, 지속적 배포)</strong>: CI를 통과한 정상적인 코드를 프로덕션(실제 서비스) 서버에 자동으로 배포하는 과정입니다.</li>
+</ul>
+<h2>GitHub Actions로 배포 파이프라인 만들기</h2>
+<p>GitHub이 자체적으로 제공하는 자동화 도구입니다. <code>.github/workflows/deploy.yml</code> 파일을 만들어 설정합니다.</p>
+<pre><code>name: CI/CD Pipeline
+
+# main 브랜치에 push가 발생할 때 트리거됨
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # 실행될 가상 환경 OS
+
+    steps:
+    - name: 소스 코드 체크아웃
+      uses: actions/checkout@v3
+
+    - name: Node.js 세팅
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: 패키지 설치
+      run: npm ci
+
+    - name: 프로젝트 빌드
+      run: npm run build
+
+    - name: 서버로 파일 전송 및 배포 실행 (SSH)
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /var/www/my-app
+          git pull origin main
+          npm install
+          npm run build
+          pm2 reload app</code></pre>
+<h2>주요 개념</h2>
+<ul>
+<li><strong>Workflow</strong>: 자동화 프로세스의 최상위 단위 (yml 파일 하나)</li>
+<li><strong>Event</strong>: 워크플로우를 실행시키는 트리거 (Push, Pull Request, Cron 등)</li>
+<li><strong>Job</strong>: 하나의 러너(가상머신)에서 실행되는 단계의 집합</li>
+<li><strong>Step</strong>: 스크립트 실행(<code>run</code>) 또는 미리 만들어진 액션(<code>uses</code>)을 호출하는 최소 단위</li>
+<li><strong>Secrets</strong>: 비밀번호, 서버 IP, SSH 키 등 코드에 노출되면 안 되는 보안 정보를 저장하는 GitHub의 설정 기능</li>
+</ul>
+<p>CI/CD를 구축해두면 개발자는 오직 <strong>"코드 작성"</strong> 에만 집중할 수 있게 됩니다!</p>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>

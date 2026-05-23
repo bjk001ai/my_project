@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zustand를 이용한 가볍고 강력한 React 상태 관리 기법 | Dev.log</title>
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html">Dev.log 👨‍💻</a>
+    <div class="nav-links"><a href="../index.html">홈</a></div>
+  </nav>
+
+  <article class="article">
+    <div class="article-tag">React</div>
+    <h1>⚛️ Zustand를 이용한 가볍고 강력한 React 상태 관리 기법</h1>
+    <p class="article-meta">2026.05.23 · Dev.log</p>
+    <div class="article-body">
+<h1>Zustand: Redux와 Context API를 대체하는 최신 상태 관리 라이브러리</h1>
+<p>리액트 어플리케이션이 커질수록 글로벌 상태 관리는 필수적입니다. Redux의 과도한 보일러플레이트 코드에 지쳤거나 Context API의 리렌더링 비효율성에 직면했다면, <strong>Zustand</strong>가 최고의 정답입니다.</p>
+<h2>1. Zustand를 쓰는 이유</h2>
+<ul>
+<li><strong>보일러플레이트 제로</strong>: 간단한 함수 하나로 스토어를 즉시 선언할 수 있습니다.</li>
+<li><strong>뛰어난 성능</strong>: 상태의 특정 부분만 구독(selector)하여 불필요한 리렌더링을 차단합니다.</li>
+<li><strong>번들 크기 최소화</strong>: 단 수 킬로바이트(KB) 수준의 초경량 라이브러리입니다.</li>
+</ul>
+<p>---</p>
+<h2>2. Zustand 기본 실습 코드</h2>
+<pre><code>import { create } from 'zustand';
+
+// 1. 상태 및 액션 타입을 갖는 스토어 생성
+interface CounterState {
+  count: number;
+  increase: () =&gt; void;
+  decrease: () =&gt; void;
+}
+
+const useCounterStore = create&lt;CounterState&gt;((set) =&gt; ({
+  count: 0,
+  increase: () =&gt; set((state) =&gt; ({ count: state.count + 1 })),
+  decrease: () =&gt; set((state) =&gt; ({ count: state.count - 1 })),
+}));
+
+// 2. 컴포넌트에서 손쉽게 사용
+export default function CounterComponent() {
+  const { count, increase, decrease } = useCounterStore();
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;개수: {count}&lt;/h1&gt;
+      &lt;button onClick={increase}&gt;증가&lt;/button&gt;
+      &lt;button onClick={decrease}&gt;감소&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+<p>단순하면서도 확장성이 높아 현대 React 프로젝트에서 가장 선호되는 상태 관리 라이브러리 중 하나입니다.</p>
+    </div>
+    <a class="back-link" href="../index.html">← 목록으로</a>
+  </article>
+</body>
+</html>
