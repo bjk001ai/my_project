@@ -1,0 +1,24 @@
+name: Auto Guestbook Post
+
+on:
+  schedule:
+    # 6일마다 실행 (UTC 기준)
+    - cron: '0 0 */6 * *'
+  workflow_dispatch: # 수동 실행도 가능
+
+jobs:
+  auto-post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post to Guestbook
+        run: |
+          curl -X POST 'https://eqlqagtmxvotwilsixtn.supabase.co/rest/v1/guestbook' \
+            -H "apikey: sb_publishable_ihTeCd-D6zJPOfhvleP0lA_stI1ohY3" \
+            -H "Authorization: Bearer sb_publishable_ihTeCd-D6zJPOfhvleP0lA_stI1ohY3" \
+            -H "Content-Type: application/json" \
+            -H "Prefer: return=minimal" \
+            -d '{
+              "name": "방문자",
+              "message": "안녕하세요! '$(date -u +"%Y-%m-%d")' 오늘도 화창한 날이네요! 📝",
+              "created_at": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'"
+            }'
